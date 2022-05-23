@@ -2,30 +2,35 @@ export const SupportedNetwork = Object.freeze({
   // MAINNET: "Mainnet",
   XDAI: "xDAI",
   MATIC: "MATIC",
+  CNDL: "CNDL",
 });
 
 export const ChainId = Object.freeze({
   // [SupportedNetwork.MAINNET]: 1,
   [SupportedNetwork.XDAI]: 100,
   [SupportedNetwork.MATIC]: 137,
+  [SupportedNetwork.CNDL]: 534,
 });
 
 export const SupportedNetworkForChainId = Object.freeze({
   // [ChainId[SupportedNetwork.MAINNET]]: SupportedNetwork.MAINNET,
   [ChainId[SupportedNetwork.XDAI]]: SupportedNetwork.XDAI,
   [ChainId[SupportedNetwork.MATIC]]: SupportedNetwork.MATIC,
+  [ChainId[SupportedNetwork.CNDL]]: SupportedNetwork.CNDL,
 });
 
 export const FACTORY_ADDRESS = {
   // [SupportedNetwork.MAINNET]: "0xd34971BaB6E5E356fd250715F5dE0492BB070452",
   [SupportedNetwork.XDAI]: "0xa818b4f111ccac7aa31d0bcc0806d64f2e0737d7",
   [SupportedNetwork.MATIC]: "0x03daa61d8007443a6584e3d8f85105096543c19c",
+  [SupportedNetwork.CNDL]: "0x251cd2C527Eca282a8C6A4Ef75EfAb19A9Ac5796",
 };
 
 export const NATIVE_CURRENCY_SYMBOL = {
   // [SupportedNetwork.MAINNET]: "ETH",
   [SupportedNetwork.XDAI]: "xDAI",
   [SupportedNetwork.MATIC]: "MATIC",
+  [SupportedNetwork.CNDL]: "CNDL",
 };
 
 export const NATIVE_CURRENCY_WRAPPER = {
@@ -41,12 +46,17 @@ export const NATIVE_CURRENCY_WRAPPER = {
     symbol: "WMATIC",
     address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
   },
+  [SupportedNetwork.CNDL]: {
+    symbol: "WCNDL",
+    address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270", // to-do: change with ours
+  },
 };
 
 export const HNY_ADDRESS = {
   // [SupportedNetwork.MAINNET]: "0xc3589f56b6869824804a5ea29f2c9886af1b0fce",
   [SupportedNetwork.XDAI]: "0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9",
   [SupportedNetwork.MATIC]: "0xb371248Dd0f9E4061ccf8850E9223Ca48Aa7CA4b",
+  [SupportedNetwork.CNDL]: "0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b", // to-do: change with ours
 };
 
 export const ETHERSCAN_PREFIXES = {
@@ -69,7 +79,7 @@ export const OVERVIEW_TOKEN_BLACKLIST = [
   "0xc3761eb917cd790b30dad99f6cc5b4ff93c4f9ea",
   "0xe31debd7abff90b06bca21010dd860d8701fd901",
   "0xfc989fbb6b3024de5ca0144dc23c18a063942ac1",
-  "0xb7d918d7631fcdd0954205e3a6b205a10a31a085"
+  "0xb7d918d7631fcdd0954205e3a6b205a10a31a085",
 ];
 
 // pair blacklist
@@ -107,15 +117,31 @@ export const NETWORK_DETAIL = {
     blockExplorerUrls: ["https://explorer.matic.network/"],
     metamaskAddable: true,
   },
+  534: {
+    chainId: "0x216",
+    chainName: "Candle",
+    nativeCurrency: {
+      name: "Candle",
+      symbol: "CNDL",
+      decimals: 18,
+    },
+    rpcUrls: ["https://rpc.cndlchain.com/"],
+    blockExplorerUrls: ["https://candleexplorer.com/"],
+    metamaskAddable: true,
+  },
 };
 
 export const NETWORK_COLORS = {
   [SupportedNetwork.XDAI]: {
-    hex: '#04795B',
-    rgba: 'rgba(4, 121, 91, 0)',
+    hex: "#04795B",
+    rgba: "rgba(4, 121, 91, 0)",
   },
   [SupportedNetwork.MATIC]: {
-    hex: '#8247E5',
-    rgba: 'rgba(130, 71, 229, 0)',
+    hex: "#8247E5",
+    rgba: "rgba(130, 71, 229, 0)",
   },
-}
+  [SupportedNetwork.CNDL]: {
+    hex: "#4097B5",
+    rgba: "rgba(64, 151, 181, 0)",
+  },
+};
