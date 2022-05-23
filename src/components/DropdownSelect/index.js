@@ -63,6 +63,8 @@ const DropdownSelect = ({ options, active, setActive, color }) => {
             ? "Polygon"
             : active === "xDAI"
             ? "Gnosis"
+            : active === "CNDL"
+            ? "Candle"
             : active}
         </TYPE.main>
         <StyledIcon>
