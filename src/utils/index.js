@@ -84,9 +84,9 @@ export function getSwapLink(
   token1Address = null
 ) {
   if (!token1Address) {
-    return `https://app.honeyswap.org/#/swap?inputCurrency=${token0Address}&chainId=${ChainId[selectedNetwork]}`;
+    return `https://dex.candlelabs.org/#/swap?inputCurrency=${token0Address}&chainId=${ChainId[selectedNetwork]}`;
   } else {
-    return `https://app.honeyswap.org/#/swap?inputCurrency=${
+    return `https://dex.candlelabs.org/#/swap?inputCurrency=${
       token0Address === nativeCurrencyWrapper.symbol
         ? nativeCurrency
         : token0Address
@@ -103,7 +103,7 @@ const getExplorerPrefix = (selectedNetwork) => {
     case SupportedNetwork.MATIC:
       return "https://polygonscan.com";
     default:
-      return "https://blockscout.com/poa/xdai";
+      return "https://candleexplorer.com";
   }
 };
 
@@ -111,7 +111,7 @@ export function getExplorerLink(selectedNetwork, data, type) {
   const prefix = getExplorerPrefix(selectedNetwork);
 
   // exception. blockscout doesn't have a token-specific address
-  if (selectedNetwork === SupportedNetwork.XDAI && type === "token") {
+  if (selectedNetwork === SupportedNetwork.CANDLE && type === "token") {
     return `${prefix}/address/${data}`;
   }
 
@@ -133,7 +133,7 @@ export function getExplorerLink(selectedNetwork, data, type) {
 }
 
 export function getSwaprAppLink(nativeCurrency, linkVariable, selectedNetwork) {
-  let baseSwaprUrl = "https://app.honeyswap.org/#/";
+  let baseSwaprUrl = "https://dex.candlelabs.org/#/";
   if (!linkVariable) {
     return baseSwaprUrl;
   }
