@@ -5,6 +5,7 @@ const FACTORY_STARTING_BLOCK = {
   // [FACTORY_ADDRESS[SupportedNetwork.MAINNET]]: 10000000,
   [FACTORY_ADDRESS[SupportedNetwork.XDAI]]: 11813490,
   [FACTORY_ADDRESS[SupportedNetwork.MATIC]]: 14599890,
+  [FACTORY_ADDRESS[SupportedNetwork.CANDLE]]: 10099890,
 };
 
 export const SUBGRAPH_HEALTH = gql`
@@ -56,7 +57,7 @@ export const PRICES_BY_BLOCK = (tokenAddress, blocks) => {
   let queryString = "query blocks {";
   queryString += blocks.map(
     (block) => `
-      t${block.timestamp}:token(id:"${tokenAddress}", block: { number: ${block.number} }) { 
+      t${block.timestamp}:token(id:"${tokenAddress}", block: { number: ${block.number} }) {
         derivedNativeCurrency
       }
     `
@@ -64,7 +65,7 @@ export const PRICES_BY_BLOCK = (tokenAddress, blocks) => {
   queryString += ",";
   queryString += blocks.map(
     (block) => `
-      b${block.timestamp}: bundle(id:"1", block: { number: ${block.number} }) { 
+      b${block.timestamp}: bundle(id:"1", block: { number: ${block.number} }) {
         nativeCurrencyPrice
       }
     `
@@ -97,7 +98,7 @@ export const HOURLY_PAIR_RATES = (pairAddress, blocks) => {
   let queryString = "query blocks {";
   queryString += blocks.map(
     (block) => `
-      t${block.timestamp}: pair(id:"${pairAddress}", block: { number: ${block.number} }) { 
+      t${block.timestamp}: pair(id:"${pairAddress}", block: { number: ${block.number} }) {
         token0Price
         token1Price
       }
@@ -112,11 +113,11 @@ export const SHARE_VALUE = (pairAddress, blocks) => {
   let queryString = "query blocks {";
   queryString += blocks.map(
     (block) => `
-      t${block.timestamp}:pair(id:"${pairAddress}", block: { number: ${block.number} }) { 
+      t${block.timestamp}:pair(id:"${pairAddress}", block: { number: ${block.number} }) {
         reserve0
         reserve1
         reserveUSD
-        totalSupply 
+        totalSupply
         token0{
           derivedNativeCurrency
         }
@@ -129,7 +130,7 @@ export const SHARE_VALUE = (pairAddress, blocks) => {
   queryString += ",";
   queryString += blocks.map(
     (block) => `
-      b${block.timestamp}: bundle(id:"1", block: { number: ${block.number} }) { 
+      b${block.timestamp}: bundle(id:"1", block: { number: ${block.number} }) {
         nativeCurrencyPrice
       }
     `
@@ -399,7 +400,7 @@ export const PAIR_DAY_DATA_BULK = (pairs, startTimestamp) => {
         totalSupply
         reserveUSD
       }
-    } 
+    }
 `;
   return gql(queryString);
 };
@@ -435,7 +436,7 @@ export const GLOBAL_DATA = (factoryAddress, block) => {
                  : FACTORY_STARTING_BLOCK[factoryAddress]
              }}`
            : ``
-       } 
+       }
        where: { id: "${factoryAddress}" }) {
         id
         totalVolumeUSD

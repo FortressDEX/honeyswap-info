@@ -90,6 +90,8 @@ const DropdownSelect = ({ options, active, setActive, color }) => {
                         ? "Polygon"
                         : option === "xDAI"
                         ? "Gnosis"
+                        : option === "CNDl"
+                        ? "Candle"
                         : option}
                     </TYPE.body>
                   </Row>

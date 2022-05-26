@@ -14,14 +14,21 @@ export const clients = {
   // }),
   [SupportedNetwork.XDAI]: new ApolloClient({
     link: new HttpLink({
-      uri: "https://api.thegraph.com/subgraphs/name/1hive/honeyswap-xdai",
+      uri: "https://api.thegraph.com/subgraphs/name/candleplatforms/honeyswap-xdai",
     }),
     cache: new InMemoryCache(),
     shouldBatch: true,
   }),
   [SupportedNetwork.MATIC]: new ApolloClient({
     link: new HttpLink({
-      uri: "https://api.thegraph.com/subgraphs/name/1hive/honeyswap-polygon",
+      uri: "https://api.thegraph.com/subgraphs/name/candleplatforms/honeyswap-polygon",
+    }),
+    cache: new InMemoryCache(),
+    shouldBatch: true,
+  }),
+  [SupportedNetwork.CANDLE]: new ApolloClient({
+    link: new HttpLink({
+      uri: "https://api.thegraph.com/subgraphs/name/candleplatforms/honeyswap-candle",
     }),
     cache: new InMemoryCache(),
     shouldBatch: true,
@@ -46,13 +53,19 @@ export const blockClients = {
   // }),
   [SupportedNetwork.XDAI]: new ApolloClient({
     link: new HttpLink({
-      uri: "https://api.thegraph.com/subgraphs/name/1hive/xdai-blocks",
+      uri: "https://api.thegraph.com/subgraphs/name/candleplatforms/xdai-blocks",
     }),
     cache: new InMemoryCache(),
   }),
   [SupportedNetwork.MATIC]: new ApolloClient({
     link: new HttpLink({
-      uri: "https://api.thegraph.com/subgraphs/name/elkfinance/matic-blocks",
+      uri: "https://api.thegraph.com/subgraphs/name/candleplatforms/matic-blocks",
+    }),
+    cache: new InMemoryCache(),
+  }),
+  [SupportedNetwork.CANDLE]: new ApolloClient({
+    link: new HttpLink({
+      uri: "https://api.thegraph.com/subgraphs/name/candleplatforms/candle-blocks",
     }),
     cache: new InMemoryCache(),
   }),

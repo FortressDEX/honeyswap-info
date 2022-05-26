@@ -6,6 +6,7 @@ const CACHE = {
   // [SupportedNetwork.MAINNET]: {},
   [SupportedNetwork.XDAI]: {},
   [SupportedNetwork.MATIC]: {},
+  [SupportedNetwork.CANDLE]: {},
 };
 
 async function getTokenLogo(network, address) {

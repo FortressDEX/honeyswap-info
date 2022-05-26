@@ -67,7 +67,7 @@ function init() {
     [SAVED_ACCOUNTS]: [],
     [SAVED_TOKENS]: {},
     [SAVED_PAIRS]: {},
-    [SAVED_SELECTED_NETWORK]: SupportedNetwork.XDAI,
+    [SAVED_SELECTED_NETWORK]: SupportedNetwork.CANDLE,
   };
 
   try {
